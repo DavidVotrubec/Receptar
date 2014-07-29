@@ -2,7 +2,7 @@
     <!-- TODO: Resource -->
     <h3>Najdi recept podle surovin</h3>
     <div class="filter" contentEditable="true" ng-show="!vm.isLoadingIngredients">
-        <div class="item" ng-repeat="ing in vm.ingredients" ng-bind="ing.Name" ng-click="vm.filterBy(ing)" 
+        <div class="item clickable" ng-repeat="ing in vm.ingredients" ng-bind="ing.Name" ng-click="vm.filterBy(ing)" 
              ng-class="{'filter':ing.isUsed}"></div>
     </div>
     

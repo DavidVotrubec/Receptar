@@ -41,8 +41,8 @@
         that.recipes = data.items;
     }
 
-    function filterRecipes(ingredientIds) {
-        
+    this.filterRecipes = function(recipe) {
+        return _.any(that.filter.ingredientIds) == false || _.any(recipe.Ingredients, function(i) { return _.contains(that.filter.ingredientIds, i); });
     }
     //#endregion Recipes
 

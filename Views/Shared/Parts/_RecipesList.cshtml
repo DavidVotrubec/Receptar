@@ -1,5 +1,5 @@
 ﻿<div class="recipes-list">
-    <div class="item" ng-repeat="item in vm.recipes" ng-show="!vm.isLoadingRecipes">
+    <div class="item" ng-repeat="item in vm.recipes | filter:vm.filterRecipes" ng-show="!vm.isLoadingRecipes">
         <strong ng-bind="item.Name"></strong>
         <br />
         <p ng-bind="item.Description"></p>
