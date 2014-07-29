@@ -1,4 +1,5 @@
-﻿<style>
+﻿@using Receptar.Extensions
+<style>
     .filter {
         height: 40px;
         padding: 10px;
@@ -9,13 +10,22 @@
         border: 1px solid #555;
         padding: 2px;
         display: inline-block;
+        margin-right: 4px;
+        color: #444;
+    }
+    
+    .filter .item.filter 
+    {
+        background-color: #00bfff;
+        color: white;
     }
 </style>
 
-<div ng-app="recipesApp">
-    <h3>Najdi recept podle surovin</h3>
-    <div class="filter" contentEditable="true">
-        <div class="item">Zaludy</div>
-        <div class="item">Puding</div>
-    </div>
-</div>
+<div ng-view></div>
+
+
+@using (Html.BeginHtmlTemplate(id: "recipes-list.html"))
+{
+    @Html.Partial("Parts/_RecipesFilter")
+    @Html.Partial("Parts/_RecipesList")
+}

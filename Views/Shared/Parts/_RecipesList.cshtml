@@ -1,0 +1,9 @@
+﻿<div class="recipes-list">
+    <div class="item" ng-repeat="item in vm.recipes" ng-show="!vm.isLoadingRecipes">
+        <strong ng-bind="item.Name"></strong>
+        <br />
+        <p ng-bind="item.Description"></p>
+    </div>
+    
+    <div class="loading" ng-show="vm.isLoadingRecipes">Loading ...</div>
+</div>
