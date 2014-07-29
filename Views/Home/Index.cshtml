@@ -1,0 +1,21 @@
+﻿<style>
+    .filter {
+        height: 40px;
+        padding: 10px;
+        border: 1px solid #333;
+    }
+    
+    .filter .item {
+        border: 1px solid #555;
+        padding: 2px;
+        display: inline-block;
+    }
+</style>
+
+<div ng-app="recipesApp">
+    <h3>Najdi recept podle surovin</h3>
+    <div class="filter" contentEditable="true">
+        <div class="item">Zaludy</div>
+        <div class="item">Puding</div>
+    </div>
+</div>
