@@ -1,9 +1,24 @@
-﻿.content {
+﻿/*Components */
+
+.clickable {
+    cursor: pointer;
+}
+
+/*EOF Components */
+
+.content {
     border: 1px solid #222;
     width: 1200px;
     margin: 0 auto;
     margin-top: 45px;
     padding: 15px;
+}
+
+@media (max-width: 1200px) 
+{
+    .content {
+        width: 100%;
+    }
 }
 
 footer .content {
@@ -12,13 +27,14 @@ footer .content {
     color: gray;
 }
 
-.clickable {
-    cursor: pointer;
-}
     
-.filter .label 
+.filter .item
 {
+    padding-top: 3px;
+    padding-bottom: 3px;
     margin-right: 5px;
+    margin-top: 5px;
+    float: left;
 }
     
 .recipes-list {
@@ -28,6 +44,7 @@ footer .content {
 
 .recipes-list .item {
     width: 200px;
-    display: inline-block;
+    display: block;
     margin-right: 10px;
+    float: left;
 }

@@ -6,9 +6,11 @@
     
     <div class="panel-body filter" contentEditable="true">
         <div ng-show="!vm.isLoadingIngredients">
-            <div class="label label-default clickable" ng-repeat="ing in vm.ingredients" ng-bind="ing.Name" ng-click="vm.filterBy(ing)" 
+            <div class="item label label-default clickable" ng-repeat="ing in vm.ingredients" ng-bind="ing.Name" ng-click="vm.filterBy(ing)" 
                  ng-class="{'label-info' : ing.isUsed}"></div>
         </div>
+        
+        <div class="clearfix"></div>
         
         <div class="loading" ng-show="vm.isLoadingIngredients">Načítám ...</div>
     </div>
