@@ -1,10 +1,16 @@
-﻿<div>
+﻿<div class="panel panel-primary">
     <!-- TODO: Resource -->
-    <h3>Najdi recept podle surovin</h3>
-    <div class="filter" contentEditable="true" ng-show="!vm.isLoadingIngredients">
-        <div class="item clickable" ng-repeat="ing in vm.ingredients" ng-bind="ing.Name" ng-click="vm.filterBy(ing)" 
-             ng-class="{'filter':ing.isUsed}"></div>
+    <div class="panel-heading">
+        <h3 class="panel-title">Najdi recept podle surovin</h3>
     </div>
     
-    <div class="loading" ng-show="vm.isLoadingIngredients">loading...</div>
+    <div class="panel-body filter" contentEditable="true">
+        <div ng-show="!vm.isLoadingIngredients">
+            <div class="label label-default clickable" ng-repeat="ing in vm.ingredients" ng-bind="ing.Name" ng-click="vm.filterBy(ing)" 
+                 ng-class="{'label-info' : ing.isUsed}"></div>
+        </div>
+        
+        <div class="loading" ng-show="vm.isLoadingIngredients">Načítám ...</div>
+    </div>
+    
 </div>

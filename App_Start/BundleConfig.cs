@@ -16,9 +16,12 @@ namespace Receptar
                         )
                         .IncludeDirectory("~/Scripts/RecipesApp", "*.js", true));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
-
-            bundles.Add(new StyleBundle("~/Content/themes/base/css"));
+            bundles.Add(new StyleBundle("~/Content/css")
+                .Include("~/Content/site.css")
+                .Include("~/Content/fontawesome.css")
+                .Include("~/Content/bootstrap/css/bootstrap.css")
+                .Include("~/Content/bootstrap/css/bootstrap-theme.css")
+                );
         }
     }
 }

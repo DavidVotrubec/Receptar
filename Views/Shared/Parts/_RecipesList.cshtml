@@ -1,8 +1,12 @@
-﻿<div class="recipes-list">
-    <div class="item" ng-repeat="item in vm.recipes | filter:vm.filterRecipes" ng-show="!vm.isLoadingRecipes">
-        <strong ng-bind="item.Name"></strong>
-        <br />
-        <p ng-bind="item.Description"></p>
+﻿<div class="recipes-list panel panel-default">
+    
+    <div ng-if="!vm.isLoadingRecipes">
+        <div class="item panel panel-default" ng-repeat="item in vm.recipes | filter:vm.filterRecipes">
+            <div class="panel-heading">
+                <h6 class="panel-title" ng-bind="item.Name"></h6>
+            </div>
+            <div class="panel-body" ng-bind="item.Description"></div>
+        </div>    
     </div>
     
     <div class="loading" ng-show="vm.isLoadingRecipes">Loading ...</div>
