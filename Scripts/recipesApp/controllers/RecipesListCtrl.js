@@ -8,16 +8,16 @@
     this.isLoadingRecipes = false;
     this.ingredients = [];
     this.recipes = [];
-    this.filter = {ingredientIds: []};
+    this.filter = { ingredientIds: [] };
 
     //#region Ingredients
     function loadIngedients() {
         that.isLoadingIngredients = true;
         $http.get(baseUrl + 'ingedients')
             .success(ingredientsLoaded)
-            .error(function() {
+            .error(function () {
                 that.isLoadingIngredients = false;
-        });
+            });
     }
 
     function ingredientsLoaded(data) {
@@ -41,23 +41,24 @@
         that.recipes = data.items;
     }
 
-    this.filterRecipes = function(recipe) {
-        return _.any(that.filter.ingredientIds) == false || _.any(recipe.Ingredients, function(i) { return _.contains(that.filter.ingredientIds, i); });
-    }
+    this.filterRecipes = function (recipe) {
+        return _.any(that.filter.ingredientIds) == false || _.any(recipe.Ingredients, function (i) { return _.contains(that.filter.ingredientIds, parseInt(i, 10)); });
+    };
     //#endregion Recipes
 
     this.filterBy = function(item) {
-        var isItemUsed = _.indexOf(that.filter.ingredientIds, item.Id) > -1;
+        var id = parseInt(item.Id);
+        var isItemUsed = _.indexOf(that.filter.ingredientIds, id) > -1;
 
         if (isItemUsed) {
-            that.filter.ingredientIds = _.without(that.filter.ingredientIds, item.Id);
+            that.filter.ingredientIds = _.without(that.filter.ingredientIds, id);
             item.isUsed = false;
         } else {
-            that.filter.ingredientIds.push(item.Id);
+            that.filter.ingredientIds.push(id);
             item.isUsed = true;
         }
-    }
+    };
 
     loadIngedients();
     loadRecipes();
-}])
+} ])
